@@ -21,7 +21,7 @@
 
    </br>
  <div align="center">
-  <em align="center" style>" Everyday life is like programming, I guess. If you love something you can put beauty into it."</em><strong> - Sabrina Bryan</strong>
+  <em align="center" style>" Everyday life is like programming, I guess. If you love something you can put beauty into it."</em><strong> - Sabrina Brya</strong>
   </div>
    </br>
 
