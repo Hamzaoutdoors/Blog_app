@@ -51,20 +51,30 @@ Everything will be based on the ERD class diagram presented below.
 </div>
 
 ## Getting Started
-To get a local copy up and running follow these simple example steps :
+To run the project locally, copy up and running follow these simple example steps :
 
  - First of all make sure you have both `Ruby` & `Rails` installed in your machine
- else You can install `Rails` just with this simple command  :
- `gem install rails`
+ (else You can install `Rails` just with this simple command  ```gem install rails```)
  - clone the project with the following command line : 
 ```
 $ git clone git@github.com:Hamzaoutdoors/BLog_app.git
 ```
  - Then go to the right folder 
 ```
-$ cd 
+$ cd Blog_app
 ```
- - Run `rails s` and visit http://localhost:3000/  in your browser!
+```
+$ bundle
+```
+make sure the database is up and running.
+```
+$ rails db:create
+```
+When you will add migration file then, you can add command like
+```
+$ rails db:migrate
+```
+ - Finaly run `rails s` and visit http://localhost:3000/  in your browser!
 
 ## Built With
 
