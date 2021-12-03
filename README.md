@@ -76,12 +76,12 @@ When you will add migration file then, you can add command like
 ```
 $ rails db:migrate
 ```
- - Finaly run `rails s` and visit http://localhost:3000/  in your browser!
 
+ - Finaly run `rails s` and visit http://localhost:3000/  in your browser!
 
  ## Run tests :
 
- To run test locally you need just to run this following command in your terminal :
+ To run Request specs locally you need just to run this following command in your terminal :
 
  ```
  $ rake spec
@@ -131,3 +131,12 @@ Give a ⭐️ if you like this project!
 
 This project is [MIT](https://github.com/Hamzaoutdoors/Blog_app/blob/dev/LICENSE.md) licensed.
 
+<!-- rails generate migration CreatePosts author_id:bigint title:string text:text comments_counter:integer likes_counter:integer -->
+
+<!-- rails generate migration CreateUsers name:string photo:string bio:text posts_counter:integer  -->
+
+<!-- rails generate migration CreateCommetns author_id:bigint post_id:bigint text:text  -->
+
+<!-- rails generate migration CreateLikes author_id:bigint post_id:bigint-->
+
+<!-- rails db:migrate:redo STEP=3 -->
