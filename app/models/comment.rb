@@ -1,3 +1,4 @@
-class Comment < ActiveRecord
-    has_many :posts
+class Comment < ApplicationRecord
+    belongs_to :user, class_name: 'User'
+    belongs_to :post, class_name: 'Post'
 end
