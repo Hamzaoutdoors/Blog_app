@@ -48,7 +48,7 @@ Everything will be based on the ERD class diagram presented below.
 
 </br>
  <div align="center">
-    <img alt="gif" src="./public/blog_app_erd.png" width=100% />
+    <img alt="gif" src="./public/blog_app_erd.png" width=50% />
     <p>Entity Relationship Diagram (ERD) of Blog App project</p>
 </div>
 
