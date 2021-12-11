@@ -22,8 +22,7 @@
    </br>
  <div align="center">
   <em align="center" style>"
-User interface is the process of shifting from chaotic complexity to elegant simplicity.
-."</em><strong> - Wise Man</strong>
+we are gathered here today to get through this thing called LIFE."</em><strong> - Dearly beloved</strong>
   </div>
    </br>
 
