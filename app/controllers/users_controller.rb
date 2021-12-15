@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.order(:id)
-
   end
 
   def show
@@ -9,14 +8,14 @@ class UsersController < ApplicationController
     @posts = Post.where(author_id: @user.id)
   end
 
-  def created 
+  def created
     @user = User.create(user_params)
     redirect_to @user
   end
 
   private
 
-def user_params
-  params.require(:user).permit(:name, :bio, :photo)
-end
+  def user_params
+    params.require(:user).permit(:name, :bio, :photo)
+  end
 end
