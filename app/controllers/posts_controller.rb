@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @comments = Comment.where(post_id: @post.id)
   end
 
-  def created
+  def create
     @post = Post.create(post_params)
     @post.update_comments_counter
     @post.update_likes_counter

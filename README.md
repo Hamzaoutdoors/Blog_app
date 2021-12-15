@@ -67,6 +67,11 @@ $ cd Blog_app
 ```
 $ bundle
 ```
+and run 
+```
+$ npm install
+```
+
 make sure the database is up and running.
 ```
 $ rails db:create
