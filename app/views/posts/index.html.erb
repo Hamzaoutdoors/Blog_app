@@ -1,2 +1,16 @@
-<h1>Posts</h1>
-<p>This is list of all posts for this user</p>
+<div class="container py-3">
+  <%= render partial: "layouts/header", locals: {user: @user} %>
+
+  <% @posts.each do |post|%>
+    <div class="d-flex flex-column py-3">
+      <%= render partial: "posts/post", locals: {post: post, user: @user} %>
+      <ul class="comments-list">
+        <% post.recent_comments.each do |comment| %>
+          <li><%= comment.find_author%> : <%= comment.text%></li>
+        <%end%>
+      </ul>
+  </div>
+  <%end%>
+<%= button_tag "Pagination", type: 'button', class: "btn btn-primary w-25"%>
+</div>
+

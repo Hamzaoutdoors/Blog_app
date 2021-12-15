@@ -1,2 +1,20 @@
-<h1>show Post</h1>
-<p>Here is a list of posts for a given user</p>
+<div class="container py-3 d-flex flex-column">
+    <div class="d-flex flex-column py-3">
+     <div class= "post_container d-flex flex-column mt-5">
+      <div class="d-flex justify-content-between">
+       <h2>Post #<%= @post.id %></h2>
+       <div class="d-flex likes-comments-container">
+         <span>Comments: <%= @post.comments_counter || 0 %></span>
+         <span>Likes: <%= @post.likes_counter || 0 %></span>
+       </div>
+     </div>
+     <p><%= @post.text %></p>
+     </div>
+      <ul class="comments-list">
+        <% @comments.each do |comment| %>
+          <li><%= comment.find_author%> : <%= comment.text%></li>
+        <%end%>
+      </ul>
+   </div>
+  <%=  link_to "Go back Home", root_path, class: "btn btn-primary w-25"%>
+</div>

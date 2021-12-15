@@ -67,6 +67,11 @@ $ cd Blog_app
 ```
 $ bundle
 ```
+and run 
+```
+$ npm install
+```
+
 make sure the database is up and running.
 ```
 $ rails db:create
@@ -74,6 +79,10 @@ $ rails db:create
 When you will add migration file then, you can add command like
 ```
 $ rails db:migrate
+```
+Run this command line to add some dummy data
+```
+$ rails db:seed
 ```
 
  - Finaly run `rails s` and visit http://localhost:3000/  in your browser!
@@ -83,7 +92,7 @@ $ rails db:migrate
  To run Request specs locally you need just to run this following command in your terminal :
 
  ```
- $ rake spec
+ $ bundle exec rspec
  ```
  </br>
  <div align="center">
