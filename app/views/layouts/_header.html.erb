@@ -1,10 +1,11 @@
-<div class="header-wrapper container d-flex justify-content-around"> 
+<div class="header-wrapper d-flex justify-content-around"> 
   <div class="image-container">
-    <%=image_tag("https://minimaltoolkit.com/images/randomdata/female/69.jpg") %>
-   </div>
+    <%=image_tag(image_url(user), alt: "User#{user.id} photo") %>
+  </div>
   <div class="user_container d-flex justify-content-between">
-     <h2>User Name</h2>
-     <span>Number of posts: x</span>
+     <h2><%= user.name %></h2>
+     <span>Number of posts: <%= post_counter(user) %></span>
   </div>
 </div>
 
+<%#  %>

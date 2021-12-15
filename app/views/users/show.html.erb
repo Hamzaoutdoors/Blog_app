@@ -1,2 +1,16 @@
-<h1>show user</h1>
-<p>On Construction</p>
+<div class="container">
+  <h1 class="py-5"><%= @user.name %> Detail</h1>
+  <%= render partial: "layouts/header", locals: {user: @user} %>
+  <div class="w-100 border border-dark my-4 p-3">
+     <h2>BIO</h2>
+     <p><%= @user.bio %></p>
+  </div>
+  <h2><%= @user.name %>'s Posts</h2>
+  <% @user.most_recent_posts.each do |post| %>
+    <%= render partial: "posts/post", locals: {post: post, user: @user} %>
+  <% end %>
+  <div class="d-flex justify-content-center align-items-center w-100 py-5">
+    <%= link_to "See all posts", user_posts_path(@user.id), {class: "btn btn-primary w-25"}%>
+  </div>
+</div>
+
