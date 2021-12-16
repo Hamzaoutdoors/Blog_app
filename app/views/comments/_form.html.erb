@@ -1,0 +1,4 @@
+<%= form_with url: post_comments_path(@post.id), scope: :data do |f| %>
+    <%= f.text_area :text, { class: "form-control", placeholder: "Your comment" } %>
+    <%= f.submit "Comment", class: "btn btn-success" %>
+<% end %>
