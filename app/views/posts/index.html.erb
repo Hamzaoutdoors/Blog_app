@@ -1,6 +1,9 @@
 <div class="container py-3">
-  <%= render partial: "layouts/header", locals: {user: @user} %>
-
+  <p id="notice"><%= notice %></p>
+  <%= render partial: "_partials/header", locals: {user: @user} %>
+  <div class="form p-2 my-4 border border-dark">
+    <%= render partial: "form" %>
+  </div>
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>
@@ -11,6 +14,6 @@
       </ul>
   </div>
   <%end%>
-<%= button_tag "Pagination", type: 'button', class: "btn btn-primary w-25"%>
+  <%== render partial: '_partials/pagy', locals: {pagy: @pagy} %>
 </div>
 

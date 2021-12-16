@@ -2,24 +2,30 @@ class PostsController < ApplicationController
   def index
     @user = current_user
     @posts = Post.where(author_id: @user.id).order(:id)
+    @pagy, @all_posts = pagy(@posts, items: 2) if @user
   end
 
   def show
-    @post = Post.find(params[:id])
-    @user = User.find(@post.author_id)
+    @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(@post.author_id)
     @comments = Comment.where(post_id: @post.id)
   end
 
-  def create
-    @post = Post.create(post_params)
-    @post.update_comments_counter
-    @post.update_likes_counter
-    redirect_back(fallback_location: root_path)
+  def new
+    @post = Post.new
   end
 
-  private
-
-  def post_params
-    params.require(:post).permit(:title, :text, :comments_counter, :likes_counter, :author_id)
+  def create
+    @post = Post.new
+    @post.author_id = current_user.id if current_user
+    @post.title = params[:title]
+    @post.text = params[:text]
+    if @post.save
+      flash[:success] = 'Article Successfully Created'
+      redirect_back(fallback_location: root_path)
+    else
+      render 'new'
+      flash[:info] = 'Create new post'
+    end
   end
 end
