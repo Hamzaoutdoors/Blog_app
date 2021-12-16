@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.where(author_id: @user.id).order(:id)
-    @pagy, @all_posts = pagy(@posts, items: 2) if @user
+    @pagy, @posts = pagy(@user.posts, items: 2) if @user
   end
 
   def show
