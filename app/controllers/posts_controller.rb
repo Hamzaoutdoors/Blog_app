@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @pagy, @posts = pagy(@user.posts, items: 2) if @user
+    @pagy, @posts = pagy(@user.posts, items: 3) if @user
   end
 
   def show
@@ -15,10 +15,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
+    @post = Post.create(post_params)
     @post.author_id = current_user.id if current_user
-    @post.title = params[:title]
-    @post.text = params[:text]
     if @post.save
       flash[:success] = 'Article Successfully Created'
       redirect_back(fallback_location: root_path)
@@ -26,5 +24,9 @@ class PostsController < ApplicationController
       render 'new'
       flash[:info] = 'Create new post'
     end
+  end
+
+  def post_params
+    params.require(:data).permit(:title, :text)
   end
 end
