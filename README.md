@@ -67,7 +67,7 @@ $ cd Blog_app
 ```
 $ bundle
 ```
-and run 
+and run to install npm package
 ```
 $ npm install
 ```
