@@ -1,0 +1,5 @@
+<%= form_with url: post_likes_path(@post.id) do |f| %>
+  <%= button_tag( :class => "btn btn-danger w-25 mb-5") do %>
+    Like <i class="fa fa-heart"></i>
+  <% end %>   
+<% end %>
