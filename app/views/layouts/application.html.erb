@@ -8,10 +8,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <%= render partial: "_partials/flash"%>
+    <%= render partial: "_partials/navbar" %>
     <%= yield %>
   </body>
 </html>
+

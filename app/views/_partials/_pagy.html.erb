@@ -1,0 +1,21 @@
+<%#
+  This template is i18n-ready: if you don't use i18n, then you can replace the pagy_t
+  calls with the actual strings ("&lsaquo; Prev", "Next &rsaquo;", "&hellip;").
+  The link variable is set to a proc that returns the link tag.
+  Usage: link.call( page_number [, text [, extra_attributes_string ]])
+-%>
+<% link = pagy_link_proc(pagy) -%>
+<%#                            -%><nav aria-label="pager" class="d-flex justify-content-center pagy_nav margin-top-05 mb-1 pagination" role="navigation">
+<% if pagy.prev                -%>  <button class="pagy-btn margin-right-025"><%== link.call(pagy.prev, pagy_t('pagy.nav.prev'), 'aria-label="previous" class="pagy-link"') %></button>
+<% else                        -%>  <button class="pagy-btn-disabled margin-right-025"><%== pagy_t('pagy.nav.prev') %></button>
+<% end                         -%>
+<% pagy.series.each do |item| # series example: [1, :gap, 7, 8, "9", 10, 11, :gap, 36] -%>
+<%   if    item.is_a?(Integer) -%>  <button class="pagy-page-btn margin-right-025"><%== link.call(item, item,'class="pagy-link"') %></button>
+<%   elsif item.is_a?(String)  -%>  <button class="pagy-page-btn-disabled margin-right-025"><%= item %></button>
+<%   elsif item == :gap        -%>  <button class="pagy-page-btn-disabled margin-right-025"><%== pagy_t('pagy.nav.gap') %></button>
+<%   end                       -%>
+<% end                         -%>
+<% if pagy.next                -%>  <button class="pagy-btn margin-right-025"><%== link.call(pagy.next, pagy_t('pagy.nav.next'), 'aria-label="next" class="pagy-link"') %></button>
+<% else                        -%>  <button class="pagy-btn-disabled margin-right-025"><%== pagy_t('pagy.nav.next') %></button>
+<% end                         -%>
+<%#                            -%></nav>
