@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  private 
+  private
 
   def comment_params
     params.require(:data).permit(:text)
