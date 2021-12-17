@@ -1,12 +1,12 @@
 <h2>Do you want to add a new post</h2>
-<%= simple_form_for @post, validate: true do |f| %>
+<%= simple_form_for @post do |f| %>
 <div class="card bg-transparent">
   <div class="card-body">
       <div class="mb-3">
-        <%= f.input :title, validate: { presence: true }, class: "form-control", placeholder: "Post title", input_html: { maxlength: 250 }, required: true %>
+        <%= f.input :title, class: "form-control", placeholder: "Post title" %>
       </div>
       <div class="mb-3">
-         <%= f.input :text, as: :text, class: "form-control", placeholder: "Enter your content here ...", required: true %>
+         <%= f.input :text, as: :text, class: "form-control", placeholder: "Enter your content here ..."%>
       </div>
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
