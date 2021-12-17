@@ -4,6 +4,6 @@ module PostsHelper
   end
 
   def posts?(posts)
-      posts.empty? ? "You have no posts yet, Try to add a post 😊" : "Your recents posts"
+    posts.empty? ? 'You have no posts yet, Try to add a post 😊' : 'Your recents posts'
   end
 end

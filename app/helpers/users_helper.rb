@@ -8,6 +8,6 @@ module UsersHelper
   end
 
   def posts?(posts)
-    posts.empty? ? "You have no posts yet, Try to add a post 😊" : "#{@user.name}\'s recents posts"
-end
+    posts.empty? ? 'You have no posts yet, Try to add a post 😊' : "#{@user.name}\'s recents posts"
+  end
 end
