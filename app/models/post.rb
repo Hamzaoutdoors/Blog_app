@@ -1,8 +1,8 @@
 class Post < ApplicationRecord
-  belongs_to :user, foreign_key: 'author_id'
-  has_many :comments, foreign_key: 'post_id', class_name: 'Comment', dependent: :destroy
-  has_many :likes, foreign_key: 'post_id', class_name: 'Like', dependent: :destroy
-  after_save :update_posts_count
+  belongs_to :user, foreign_key: 'author_id', class_name: 'User'
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  after_save :update_posts_count 
 
   def update_posts_count
     user.increment!(:posts_counter)
@@ -12,3 +12,4 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 end
+

@@ -34,6 +34,9 @@ end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'font_awesome5_rails'
 gem 'pagy', '~> 5.6'
-gem 'rubocop', '>= 1.0', '< 2.0'
+gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
