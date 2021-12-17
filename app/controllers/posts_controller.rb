@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @pagy, @posts = pagy(@user.posts, items: 2) if @user
+    @pagy, @posts = pagy(@user.posts.includes(:comments), items: 2) if @user
   end
 
   def show
     @post = Post.find_by_id(params[:id])
     @user = User.find_by_id(@post.author_id)
-    @comments = Comment.where(post_id: @post.id)
+    @comments = Comment.includes(:post).where(post_id: @post.id)
   end
 
   def new
