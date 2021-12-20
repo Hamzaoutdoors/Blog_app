@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.0.3'
 
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '~> 1.1'
@@ -38,3 +38,5 @@ gem 'font_awesome5_rails'
 gem 'pagy', '~> 5.6'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'simple_form'
+
+gem 'devise'

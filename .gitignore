@@ -39,3 +39,5 @@ yarn-debug.log*
 
 .rubocop.yml
 .stylelintrc.json
+Gemfile
+Gemfile.lock
