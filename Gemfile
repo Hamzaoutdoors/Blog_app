@@ -38,3 +38,5 @@ gem 'font_awesome5_rails'
 gem 'pagy', '~> 5.6'
 gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'simple_form'
+
+gem 'devise'
