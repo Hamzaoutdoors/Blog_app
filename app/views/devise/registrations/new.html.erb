@@ -4,6 +4,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :name,
+                as: :string,
+                autofocus: true,
+                input_html: { autocomplete: "name" }
+                %>
+    <%= f.input :posts_counter, 
+                as: :hidden,
+                required: false,
+                input_html: { value: 0.to_i }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
