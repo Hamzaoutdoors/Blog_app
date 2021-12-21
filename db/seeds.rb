@@ -1,4 +1,4 @@
-users = User.create([
+=begin users = User.create([
 	{ name: 'Nelsino', bio: "I'm the last oracle", posts_counter: 0},
 	{ name: 'Hamza', bio: "I'm the First oracle", posts_counter: 0},
 	{ name: 'Juan', bio: "I'm the Best oracle", posts_counter: 0},
@@ -21,4 +21,4 @@ users = User.create([
 	  Like.create(author_id: all_users[j].id, post_id: post.id)
 	  Comment.create(author_id: all_users[j].id, post_id: post.id, text: "I'm #{all_users[j].name} and I'm commenting gibberish here.")
 	end
-  end
+  end =end
