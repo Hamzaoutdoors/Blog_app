@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = current_user
     @pagy, @posts = pagy(@user.posts.includes(:comments), items: 2) if @user
@@ -14,10 +16,19 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def destroy
+    @post = Post.find_by_id(params[:id])
+    if @post.destroy
+      flash[:success] = 'Post Successfully Destroyed the post'
+      redirect_back(fallback_location: root_path)
+    else
+      flash.now[:danger] = 'You have not access'
+    end
+  end
+
   def create
-    @user = current_user
-    @post = @user.posts.create(post_params.merge(author_id: current_user.id))
-    @post.author_id = current_user.id if current_user
+    @post = Post.new(post_params.merge(author_id: current_user.id))
+    @post.author_id = current_user.id
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save

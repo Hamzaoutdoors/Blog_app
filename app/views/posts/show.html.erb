@@ -8,7 +8,7 @@
          <span>Likes: <%= @post.likes_counter || 0 %></span>
        </div>
      </div>
-     <p><%= @post.text %></p>
+     <p class="d-block w-75 text-break "><%= @post.text %></p>
      </div>
       <ul class="comments-list">
         <% @comments.each do |comment| %>

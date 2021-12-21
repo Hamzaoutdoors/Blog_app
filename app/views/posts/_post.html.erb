@@ -5,4 +5,9 @@
        <span>Comments: <%= post.comments_counter || 0 %></span>
        <span>Likes: <%= post.likes_counter || 0 %></span>
      </div>
+     <% if can? :delete, post %>
+       <%= link_to user_post_path(user.id, post.id), method: :delete, class: "btn btn-danger" do%>
+         <span>Delete</span>
+       <% end %>
+     <% end %>
 <%end%>
