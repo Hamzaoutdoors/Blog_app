@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find_by_id(params[:post_id])
-    @post.comments.create(comment_params.merge(author_id: current_user.id))
+    @comment = Comment.new(comment_params.merge(author_id: current_user.id))
 
-    if @post.save
+    if @comment.save
       flash[:success] = 'Comment Successfully Created'
     else
       flash[:danger] = 'Please add a valid comment'
