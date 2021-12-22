@@ -13,6 +13,10 @@
                 as: :hidden,
                 required: false,
                 input_html: { value: 0.to_i }%>
+    <%= f.input :role, 
+                as: :hidden,
+                required: false,
+                input_html: { value: 'user' }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,

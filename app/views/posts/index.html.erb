@@ -6,9 +6,14 @@
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>
-      <ul class="comments-list">
+      <ul class="comments-list mt-1">
         <% post.recent_comments.each do |comment| %>
-          <li><%= comment.find_author%> : <%= comment.text%></li>
+          <li class="d-flex">
+            <%= comment.find_author%> 
+            : <%= comment.text%> 
+            <%= render partial: '_partials/buttons/delete_comment', locals: {post: post, comment: comment} %>
+          </li>
+          <hr class="p-0 my-2"/>
         <%end%>
       </ul>
   </div>

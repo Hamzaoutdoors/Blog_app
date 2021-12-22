@@ -1,0 +1,6 @@
+<h2>Post #<%= post.id %></h2>
+<p><%= truncate_text(post.text) %></p>
+<div class="d-flex likes-comments-container">
+  <span>Comments: <%= post.comments_counter || 0 %></span>
+  <span>Likes: <%= post.likes_counter || 0 %></span>
+</div>

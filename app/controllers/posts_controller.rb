@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @user = current_user
+    @current_user = current_user
+    @user = User.find_by_id(params[:user_id])
     @pagy, @posts = pagy(@user.posts.includes(:comments), items: 2) if @user
   end
 
@@ -14,10 +15,26 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def destroy
+    current_uri = request.env['PATH_INFO']
+    @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(params[:user_id])
+
+    if @post.destroy
+      flash[:success] = 'Post Deleted Successfully'
+      if current_uri.include?("/posts/#{params[:id]}")
+        redirect_to user_posts_path(@user.id)
+      else
+        redirect_back(fallback_location: root_path)
+      end
+    else
+      flash.now[:danger] = 'You have not access'
+    end
+  end
+
   def create
-    @user = current_user
-    @post = @user.posts.create(post_params.merge(author_id: current_user.id))
-    @post.author_id = current_user.id if current_user
+    @post = Post.new(post_params.merge(author_id: current_user.id))
+    @post.author_id = current_user.id
     @post.comments_counter = 0
     @post.likes_counter = 0
     if @post.save
