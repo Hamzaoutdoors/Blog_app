@@ -20,7 +20,11 @@ RSpec.describe Post, type: :model do
   consectetuer'
 
   before :each do
-    User.create(id: 1, name: 'hamza', posts_counter: 0)
+    user = User.new(id: 1, name: 'hamza', posts_counter: 0)
+    user.email = 'foo1@foo.com'
+    user.password = 'admin123'
+    user.password_confirmation = 'admin123'
+    user.save
   end
 
   subject do
