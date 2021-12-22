@@ -17,10 +17,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    current_uri = request.env['PATH_INFO']
     @post = Post.find_by_id(params[:id])
+    @user = User.find_by_id(@post.author_id)
+
     if @post.destroy
       flash[:success] = 'Post Successfully Destroyed the post'
-      redirect_back(fallback_location: root_path)
+      if current_uri.include?("/posts/#{@post.id}")
+        redirect_to user_posts_path(@user.id)
+      else
+        redirect_back(fallback_location: root_path)
+      end
     else
       flash.now[:danger] = 'You have not access'
     end
