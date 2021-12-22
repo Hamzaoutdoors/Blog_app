@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,11 +8,13 @@ class Ability
     can :read, Comment, user: user
     can :read, Like, user: user
 
-    return unless user.present?  # additional permissions for logged in users 
-    can [:update, :destroy], Post, author_id: user.id
-    can [:update, :destroy], Comment, author_id: user.id
+    return unless user.present? # additional permissions for logged in users
 
-    return unless user.is? :admin  # additional permissions for administrators
+    can %i[update destroy], Post, author_id: user.id
+    can %i[update destroy], Comment, author_id: user.id
+
+    return unless user.is? :admin # additional permissions for administrators
+
     can :manage, :all
     #
     # The first argument to `can` is the action you are giving the user

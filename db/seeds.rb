@@ -16,16 +16,16 @@
   all_users = User.all
   
   all_users.each do |user|
-	for j in 1..5 do
-	  Post.create(title: "Post number: #{j}", text: "I'm writing my post number: #{j}", comments_counter: 0, likes_counter: 0, author_id: user.id)
-	end
+    for j in 1..5 do
+      Post.create(title: "Post number: #{j}", text: "I'm writing my post number: #{j}", comments_counter: 0, likes_counter: 0, author_id: user.id)
+    end
   end
   
   all_posts = Post.all
   
   all_posts.each do |post|
-	for j in 0..2 do
-	  Like.create(author_id: all_users[j].id, post_id: post.id)
-	  Comment.create(author_id: all_users[j].id, post_id: post.id, text: "I'm #{all_users[j].name} and I'm commenting gibberish here.")
-	end
+    for j in 0..2 do
+      Like.create(author_id: all_users[j].id, post_id: post.id)
+      Comment.create(author_id: all_users[j].id, post_id: post.id, text: "I'm #{all_users[j].name} and I'm commenting gibberish here.")
+    end
   end 

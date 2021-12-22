@@ -5,7 +5,6 @@ class Post < ApplicationRecord
   after_save :increment_posts_count
   after_destroy :decrement_posts_count
 
-
   validates :title, presence: true
   validates :text, presence: true, length: { maximum: 250 }
   validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
