@@ -2,14 +2,11 @@
     <div class="d-flex flex-column py-3">
      <div class= "post_container d-flex flex-column mt-5">
       <div class="d-flex justify-content-between">
-       <h2>Post Title : <%= @post.title %></h2>
-       <div class="d-flex likes-comments-container">
-         <span>Comments: <%= @post.comments_counter || 0 %></span>
-         <span>Likes: <%= @post.likes_counter || 0 %></span>
-       </div>
+        <%= render partial: '_partials/cards/post_card', locals: { post: @post} %>
+      </div>
+      <p class="d-block w-75 text-break "><%= @post.text %></p>
      </div>
-     <p class="d-block w-75 text-break "><%= @post.text %></p>
-     </div>
+     <%= render partial: '_partials/buttons/delete_post', locals: { post: @post, user: @user } %>
       <ul class="comments-list">
         <% @comments.each do |comment| %>
           <li><%= comment.find_author%> : <%= comment.text%></li>

@@ -1,13 +1,4 @@
 <%=  link_to user_post_path(user.id, post.id), {class: "post_container d-flex flex-column mt-5 text-decoration-none text-dark"} do%>
-     <h2>Post #<%= post.id %></h2>
-     <p><%= truncate_text(post.text) %></p>
-     <div class="d-flex likes-comments-container">
-       <span>Comments: <%= post.comments_counter || 0 %></span>
-       <span>Likes: <%= post.likes_counter || 0 %></span>
-     </div>
-     <% if can? :delete, post %>
-       <%= link_to user_post_path(user.id, post.id), method: :delete, class: "btn btn-danger" do%>
-         <span>Delete</span>
-       <% end %>
-     <% end %>
+      <%= render partial: '_partials/cards/post_card', locals: { post: post} %>
+      <%= render partial: '_partials/buttons/delete_post', locals: { post: post, user: user } %>
 <%end%>
