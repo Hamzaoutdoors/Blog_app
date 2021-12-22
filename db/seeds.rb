@@ -24,7 +24,7 @@
   all_posts = Post.all
   
   all_posts.each do |post|
-    for j in 0..2 do
+    for j in 0..4 do
       Like.create(author_id: all_users[j].id, post_id: post.id)
       Comment.create(author_id: all_users[j].id, post_id: post.id, text: "I'm #{all_users[j].name} and I'm commenting gibberish here.")
     end

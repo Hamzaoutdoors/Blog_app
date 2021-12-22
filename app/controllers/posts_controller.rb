@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
-
   def index
     @current_user = current_user
     @user = User.find_by_id(params[:user_id])
