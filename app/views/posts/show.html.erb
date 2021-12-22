@@ -9,7 +9,11 @@
      <%= render partial: '_partials/buttons/delete_post', locals: { post: @post, user: @user } %>
       <ul class="comments-list">
         <% @comments.each do |comment| %>
-          <li><%= comment.find_author%> : <%= comment.text%></li>
+          <li class="d-flex">
+            <%= comment.find_author%> 
+            : <%= comment.text%> 
+            <%= render partial: '_partials/buttons/delete_comment', locals: {post: @post, comment: comment} %>
+          </li>
         <%end%>
       </ul>
       <%= render partial: "likes/form" %>

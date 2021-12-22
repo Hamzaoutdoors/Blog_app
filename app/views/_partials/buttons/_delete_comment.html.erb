@@ -1,0 +1,5 @@
+<% if can? :destroy, comment %>
+  <%= link_to post_comment_path(post.id, comment.id), method: :delete, class: "btn btn-danger ms-auto trash-icon mb-1" do%>
+    <span><i class="fa fa-trash"></i></span>
+  <% end %>
+<% end %>
