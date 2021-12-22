@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @user = current_user
+    @current_user = current_user
+    @user = User.find_by_id(params[:user_id])
     @pagy, @posts = pagy(@user.posts.includes(:comments), items: 2) if @user
   end
 
@@ -19,11 +20,11 @@ class PostsController < ApplicationController
   def destroy
     current_uri = request.env['PATH_INFO']
     @post = Post.find_by_id(params[:id])
-    @user = User.find_by_id(@post.author_id)
+    @user = User.find_by_id(params[:user_id])
 
     if @post.destroy
-      flash[:success] = 'Post Successfully Destroyed the post'
-      if current_uri.include?("/posts/#{@post.id}")
+      flash[:success] = 'Post Deleted Successfully'
+      if current_uri.include?("/posts/#{params[:id]}")
         redirect_to user_posts_path(@user.id)
       else
         redirect_back(fallback_location: root_path)
