@@ -2,7 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before :each do
-    User.create(id: 1, name: 'hamza', posts_counter: 0)
+    user = User.new(id: 1, name: 'hamza', posts_counter: 0)
+    user.email = 'foo1@foo.com'
+    user.password = 'admin123'
+    user.password_confirmation = 'admin123'
+    user.save
   end
 
   before :each do

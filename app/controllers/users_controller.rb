@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
+    return unless @user.save
+
+    flash[:success] = 'Signed in successfully'
+    redirect_to user_post_path(@post.author_id, @post.id)
     redirect_to @user
   end
 
@@ -21,5 +25,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :bio, :photo, :posts_counter, :email, :password)
+  end
+
+  def display_error_message
+    flash.now[:danger] = 'Form contains errors. Please see fields marked in red'
   end
 end
