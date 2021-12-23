@@ -1,8 +1,7 @@
 require 'rails_helper'
 require './spec/mocks_module'
 
-
-RSpec.describe "user index view", type: :feature do
+RSpec.describe 'user index view', type: :feature do
   include Mocks
 
   before :each do
@@ -12,16 +11,15 @@ RSpec.describe "user index view", type: :feature do
 
     visit new_user_session_path
 
-    within("form") do
+    within('form') do
       fill_in 'user_email', with: 'foo1@foo.com'
       fill_in 'user_password', with: 'admin123'
     end
     click_button 'Log in'
   end
 
-  context "displaying correctly" do
-    
-    it "can see all users name" do
+  context 'displaying correctly' do
+    it 'can see all users name' do
       users = User.all
 
       users.each do |user|
@@ -29,17 +27,17 @@ RSpec.describe "user index view", type: :feature do
       end
     end
 
-    it "can see all users photos" do
+    it 'can see all users photos' do
       users = User.all.order(:id)
       imgs = page.all('img')
 
       users.each_with_index do |user, index|
         expect(imgs[index]['src']).to include(user.name)
       end
-      expect(imgs.length).to be(users.length) 
+      expect(imgs.length).to be(users.length)
     end
-      
-    it "can see all users posts number" do
+
+    it 'can see all users posts number' do
       users = User.all
 
       users.each do |user|
@@ -49,7 +47,7 @@ RSpec.describe "user index view", type: :feature do
   end
 
   context 'is redirect to user_show_path' do
-    it "can see all users posts number" do
+    it 'can see all users posts number' do
       users = User.all
 
       users.each do |user|

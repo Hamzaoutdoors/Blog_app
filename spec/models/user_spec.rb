@@ -4,7 +4,6 @@ RSpec.describe User, type: :model do
   subject do
     User.new(name: 'Anything', bio: 'Lorem ipsum', photo: 'https://ui-avatars.com/api/?name=sara&background=random',
              posts_counter: 1, email: 'foo1@foo.com')
-
   end
   before { subject.save }
 

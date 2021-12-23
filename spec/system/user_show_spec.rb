@@ -1,7 +1,8 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 require './spec/mocks_module'
 
-RSpec.describe "user show view", type: :feature do
+RSpec.describe 'user show view', type: :feature do
   include Mocks
 
   before :each do
@@ -11,16 +12,15 @@ RSpec.describe "user show view", type: :feature do
 
     visit new_user_session_path
 
-    within("form") do
+    within('form') do
       fill_in 'user_email', with: 'foo1@foo.com'
       fill_in 'user_password', with: 'admin123'
     end
     click_button 'Log in'
   end
 
-  context "displaying correctly" do
-
-    it "can see user picture" do
+  context 'displaying correctly' do
+    it 'can see user picture' do
       users = User.all
 
       users.each do |user|
@@ -34,19 +34,19 @@ RSpec.describe "user show view", type: :feature do
       end
     end
 
-    it "can see user username" do
+    it 'can see user username' do
       users = User.all
-      
+
       users.each do |user|
         visit user_path(user.id)
 
         expect(page).to have_content user.name
 
         visit root_path
-      end 
+      end
     end
-      
-    it "can see user post counter" do
+
+    it 'can see user post counter' do
       users = User.all
 
       users.each do |user|
@@ -58,20 +58,20 @@ RSpec.describe "user show view", type: :feature do
       end
     end
 
-    it "can see user bio" do
+    it 'can see user bio' do
       users = User.all
 
       users.each do |user|
         visit user_path(user.id)
 
-        expect(page).to have_content "BIO"
+        expect(page).to have_content 'BIO'
         expect(page).to have_content user.bio
 
         visit root_path
       end
     end
 
-    it "can see user recent_posts" do
+    it 'can see user recent_posts' do
       users = User.all
 
       users.each do |user|
@@ -80,13 +80,13 @@ RSpec.describe "user show view", type: :feature do
         recent_posts = user.most_recent_posts
         recent_posts.each do |post|
           expect(page).to have_content "#{post.title} - ##{post.id}"
-        end 
-        
+        end
+
         visit root_path
       end
     end
 
-    it "can see see all posts button" do
+    it 'can see see all posts button' do
       users = User.all
 
       users.each do |user|
@@ -102,7 +102,7 @@ RSpec.describe "user show view", type: :feature do
   # When I click a user's post, it redirects me to that post's show page.
 
   context 'should redirect to post path' do
-    it "user can see all users posts number" do
+    it 'user can see all users posts number' do
       users = User.all
 
       users.each do |user|
@@ -117,7 +117,7 @@ RSpec.describe "user show view", type: :feature do
           link.click
 
           expect(current_path).to eq(user_post_path(user.id, post.id))
-        end 
+        end
         visit root_path
       end
     end
@@ -126,14 +126,14 @@ RSpec.describe "user show view", type: :feature do
   # When I click to see all posts, it redirects me to the user's post's index page.
 
   context 'should redirect to post index view' do
-    it "can see all users posts number" do
+    it 'can see all users posts number' do
       users = User.all
 
       users.each do |user|
         visit user_path(user.id)
 
         click_link 'See all posts'
-        
+
         expect(current_path).to eq(user_posts_path(user.id))
 
         visit root_path
@@ -141,3 +141,4 @@ RSpec.describe "user show view", type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

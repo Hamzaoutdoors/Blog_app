@@ -10,11 +10,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      flash[:success] = 'Signed in successfully'
-      redirect_to user_post_path(@post.author_id, @post.id)
-      redirect_to @user
-    end
+    return unless @user.save
+
+    flash[:success] = 'Signed in successfully'
+    redirect_to user_post_path(@post.author_id, @post.id)
+    redirect_to @user
   end
 
   def edit
