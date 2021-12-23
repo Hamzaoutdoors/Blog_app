@@ -17,7 +17,7 @@
   
   all_users.each do |user|
     for j in 1..5 do
-      Post.create(title: "Post number: #{j}", text: "I'm writing my post number: #{j}", comments_counter: 0, likes_counter: 0, author_id: user.id)
+      Post.create(title: "Awsome post", text: "I'm writing my post number: #{j}", comments_counter: 0, likes_counter: 0, author_id: user.id)
     end
   end
   
