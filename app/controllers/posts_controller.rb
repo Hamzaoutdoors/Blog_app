@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
+  # skip_authorize_resource only: [:all_posts]
+
   def index
     @current_user = current_user
     @user = User.find_by_id(params[:user_id])
