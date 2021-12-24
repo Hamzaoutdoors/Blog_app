@@ -309,6 +309,6 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
   config.jwt do |jwt|
-    jwt.secret = '2c7c57930d8ecacaa0d2d48f8966bf13cddd00e1bdf3ae4f65d047a20fefe4b58aed562a88f47d8b78548195ec91cf3e219c12dd3efa597b8f8c309884bed8f0'
+    jwt.secret = '0f28b900a3d82da01400a67e47d7f6f474298910ad60ac6c77d02c4484995caebb660a238cc74ec56a633e55a9f8386180061447db9d026cb032bbf96d3faf84'
   end
 end

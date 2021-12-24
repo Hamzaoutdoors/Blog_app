@@ -1,4 +1,4 @@
-  names = [
+=begin   names = [
 	{ name: 'Nelsino', bio: "I'm the last oracle", posts_counter: 0, email:'foo1@foo.com', role: 'admin'},
 	{ name: 'Hamza', bio: "I'm the First oracle", posts_counter: 0, email:'foo2@foo.com', role: 'admin'},
 	{ name: 'Herbert', bio: "I'm the Best oracle", posts_counter: 0, email:'foo3@foo.com', role: 'admin'},
@@ -28,4 +28,4 @@
       Like.create(author_id: all_users[j].id, post_id: post.id)
       Comment.create(author_id: all_users[j].id, post_id: post.id, text: "I'm #{all_users[j].name} and I'm commenting gibberish here.")
     end
-  end 
+  end  =end
