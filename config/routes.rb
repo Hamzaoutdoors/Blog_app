@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
+
+  get 'api/posts', to: "apiposts#index"
+
+  # scope '/api/:post_id/' do
+  #   resources :comments, only: [:index, :create]
+  # end
+
 end
