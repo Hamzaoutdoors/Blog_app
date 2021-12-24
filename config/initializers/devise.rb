@@ -9,6 +9,9 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.jwt do |jwt|
+    jwt.secret = 'a2e702037dbca33423ad14289a7dea8d08f88b8805913a4279479e3766f0195db724b8ddc9cd5c6dd1c184d2d22c847ece1295e7ef5498e3136c156402875266'
+  end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
@@ -308,7 +311,5 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  config.jwt do |jwt|
-    jwt.secret = '0f28b900a3d82da01400a67e47d7f6f474298910ad60ac6c77d02c4484995caebb660a238cc74ec56a633e55a9f8386180061447db9d026cb032bbf96d3faf84'
-  end
+
 end
