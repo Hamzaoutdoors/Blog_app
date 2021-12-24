@@ -3,7 +3,7 @@ class API::CommentsController < ApplicationController
 
     def index
         @comments = Comment.where(post_id: params[:post_id]).order(:created_at)
-        render json: @comments
+        render json: { success: true, data: { comments: @comments } }
     end
 
     def create
@@ -11,9 +11,9 @@ class API::CommentsController < ApplicationController
         @comment = Comment.new(comment_params.merge(author_id: current_user.id, post_id: @post.id))
     
         if @comment.save
-           render json: @comment, status: :created
+           render json: { success: true, data: { comment: @comment } }, status: :created
         else
-          render json: {error: "Unable to create a Comment for this post"}, stats: 400
+            render json: { success: false, errors: @comment.errors }, status: 400
         end
     end
 
