@@ -41,3 +41,5 @@ gem 'simple_form'
 
 gem 'cancancan'
 gem 'devise'
+gem 'devise-jwt'
+gem 'rswag'
