@@ -2,8 +2,8 @@
   <h1 class="py-5">Welcome to your Blog App</h1>
   <% @users.each do |user| %>
     <div class="header-wrapper d-flex justify-content-around my-3"> 
-      <div class="image-container">
-        <%=image_tag(image_url(user), alt: "User#{user.id} photo") %>
+      <div class="image-container rounded-circle">
+        <%=image_tag(image_url(user), alt: "User#{user.id} photo", class: "rounded-circle") %>
       </div>
       <%=  link_to user_path(user.id), {class: "user_container d-flex justify-content-between text-decoration-none"} do%>
         <h2><%= user.name %></h2>
