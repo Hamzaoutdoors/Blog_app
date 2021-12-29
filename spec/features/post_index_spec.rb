@@ -66,7 +66,7 @@ RSpec.describe 'post index view', type: :feature do
       visit user_posts_path(user.id)
 
       posts.each do |post|
-        expect(page).to have_content "#{post.title} - ##{post.id}"
+        expect(page).to have_content "#{post.title}"
       end
     end
 

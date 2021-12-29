@@ -23,7 +23,7 @@ RSpec.describe 'post show view', type: :feature do
 
   context 'displaying correctly' do
     it "can see post's title" do
-      expect(page).to have_content "#{@post.title} - ##{@post.id}"
+      expect(page).to have_content "#{@post.title}"
     end
 
     it 'can see some of post body' do
