@@ -24,6 +24,7 @@ group :development do
   gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'web-console', '>= 4.1.0'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :test do
@@ -43,3 +44,4 @@ gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
 gem 'rswag'
+gem 'coffee-script-source', '~> 1.11', '>= 1.11.1'
