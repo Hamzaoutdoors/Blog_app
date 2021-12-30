@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  
   def new
     @comment = Comment.new
   end
@@ -18,12 +20,12 @@ class CommentsController < ApplicationController
   def destroy
     current_uri = request.env['PATH_INFO']
     @post = Post.find_by_id(params[:post_id])
-    @user = User.find_by_id(@post.author_id)
+    @user = User.find_by_id(params[:id])
     @comment = Comment.find_by_id(params[:id])
 
     if @comment.destroy
       flash[:success] = 'Comment Deleted Successfully'
-      if current_uri.include?("/posts/#{@post.id}")
+      if current_uri.include?("/posts/#{@comment.post.id}")
         redirect_to user_posts_path(@user.id)
       else
         redirect_back(fallback_location: root_path)

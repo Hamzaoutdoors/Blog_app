@@ -1,15 +1,14 @@
-<div class="container">
+<div class="container min-vh-100 d-flex flex-column align-content-center justify-content-start">
   <h1 class="py-5">Welcome to your Blog App</h1>
-  <% @users.each do |user| %>
-    <div class="header-wrapper d-flex justify-content-around my-3"> 
-      <div class="image-container">
-        <%=image_tag(image_url(user), alt: "User#{user.id} photo") %>
-      </div>
-      <%=  link_to user_path(user.id), {class: "user_container d-flex justify-content-between text-decoration-none"} do%>
-        <h2><%= user.name %></h2>
-        <span>Number of posts: <%= post_counter(user) %></span>
-      <%end%>
-    </div>
-  <%end%>
-  <p class="py-5 display-4">Thanks for using this Blog App</h1>
+  <div class="wrapper d-flex align-content-center justify-content-center flex-wrap my-5">
+    <% @users.each do |user| %>
+        <%=  link_to user_path(user.id), {class: "user_container d-flex flex-column text-center text-decoration-none mx-auto"} do%>
+          <div class="image-container rounded-circle">
+            <%=image_tag(image_url(user), alt: "User#{user.id} photo", class: "rounded-circle w-100") %>
+          </div>
+          <h2><%= user.name %></h2>
+          <span>Number of posts: <%= post_counter(user) %></span>
+        <%end%>
+    <%end%>
+  </div>
 </div>
