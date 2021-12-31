@@ -6,7 +6,7 @@
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>
-      <ul class="comments-list mt-1">
+      <ul class="comments-list mt-1 border-success mb-3">
         <% post.recent_comments.each do |comment| %>
           <li class="d-flex">
             <%= comment.find_author%> 

@@ -1,4 +1,6 @@
-<%=  link_to user_post_path(user.id, post.id), {class: "post_container d-flex flex-column mt-5 text-decoration-none text-dark"} do%>
-      <%= render partial: '_partials/cards/post_card', locals: { post: post} %>
-      <%= render partial: '_partials/buttons/delete_post', locals: { post: post, user: user } %>
-<%end%>
+<div class="card my-5 px-3 pb-5 d-flex flex-column border-info mb-2">
+  <%=  link_to user_post_path(user.id, post.id), {class: "post_container d-flex flex-column mt-5 text-decoration-none text-dark"} do%>
+    <%= render partial: '_partials/cards/post_card', locals: { post: post} %>
+  <%end%>
+  <%= render partial: '_partials/buttons/delete_post', locals: { post: post, user: user } %>
+</div>

@@ -1,10 +1,15 @@
 <div class="container py-3 d-flex flex-column">
     <div class="d-flex flex-column py-3">
-     <div class= "post_container d-flex flex-column mt-5">
-      <div class="d-flex justify-content-between">
-        <%= render partial: '_partials/cards/post_card', locals: { post: @post} %>
+     <div class= "card post_container border-info mb-2 d-flex flex-column mt-5">
+      <div class="d-flex">
+        <h2><%= @post.title %>,</h2>
+        <p class="card-subtitle text-muted pt-3 mx-3"><%= time_ago_in_words(@post.created_at) %></p>
       </div>
       <p class="d-block w-75 text-break "><%= @post.text %></p>
+      <div class="d-flex likes-comments-container justify-content-end">
+        <span>Comments: <%= @post.comments_counter %></span>
+        <span>Likes: <%= @post.likes_counter %></span>
+      </div>
      </div>
      <%= render partial: '_partials/buttons/delete_post', locals: { post: @post, user: @user } %>
       <ul class="comments-list">

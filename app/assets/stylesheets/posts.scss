@@ -1,18 +1,17 @@
 .post_container {
-  border: 2px solid black;
   width: 100%;
   padding: 15px;
   margin: 0;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     justify-self: start;
     align-self: start;
+    margin-bottom: 50px;
   }
 
   p {
     font-size: 1.2rem;
-    justify-self: start;
   }
 
   .likes-comments-container {
