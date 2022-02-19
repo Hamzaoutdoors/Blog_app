@@ -1,8 +1,8 @@
 <div class="container py-3">
   <p id="notice"><%= notice %></p>
   <%= render partial: "_partials/header", locals: {user: @user} %>
-  <%= link_to "Add post", new_post_path, {class: "btn btn-success w-25 mt-5 mb-2"} %>
-  <h2 class="text-center text-capitalize mt-3"><%= posts?(@posts) %></h3>
+  <%= link_to "Add post", new_post_path, {class: "btn btn-success w-25 mt-3 mb-2"} %>
+  <h2 class="text-center text-capitalize mt-2"><%= posts?(@posts) %></h3>
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>
