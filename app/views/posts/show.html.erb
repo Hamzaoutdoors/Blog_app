@@ -9,9 +9,13 @@
      <%= render partial: '_partials/buttons/delete_post', locals: { post: @post, user: @user } %>
       <ul class="comments-list">
         <% @comments.each do |comment| %>
-          <li class="d-flex">
-            <%= comment.find_author%> 
-            : <%= comment.text%> 
+          <li class="comment d-flex">
+            <div class="user-image rounded-circle w-10">
+              <%=image_tag(image_url(comment.user), alt: "User#{comment.user.id} photo", class: "rounded-circle") %>
+            </div>
+            <div class="comment-body">
+              <span class="fw-bold"><%= comment.find_author%></span> : <%= comment.text%>  
+            </div>
             <%= render partial: '_partials/buttons/delete_comment', locals: {post: @post, comment: comment} %>
           </li>
           <hr class="p-0 my-2"/>

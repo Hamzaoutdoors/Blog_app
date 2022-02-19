@@ -1,11 +1,15 @@
 .post_container {
   border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: -1px 1px 6px 1px rgba(0, 0, 0, 0.8);
+  background-color: white;
   width: 100%;
   padding: 15px;
   margin: 0;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: bold;
     justify-self: start;
     align-self: start;
   }
@@ -30,6 +34,6 @@
   flex-direction: column;
   color: black;
   padding: 20px;
-  border: 2px solid black;
+  border: 1px solid #2e2e2e;
   width: 100%;
 }

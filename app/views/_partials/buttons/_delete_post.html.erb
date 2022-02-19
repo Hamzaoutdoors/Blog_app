@@ -1,5 +1,5 @@
 <% if can? :destroy, post %>
-  <%= link_to user_post_path(user.id, post.id), method: :delete, class: "btn btn-danger w-10 mt-2" do%>
+  <%= link_to user_post_path(user.id, post.id), method: :delete, class: "btn btn-danger w-25 mt-2" do%>
     <span>Delete</span>
   <% end %>
 <% end %>
